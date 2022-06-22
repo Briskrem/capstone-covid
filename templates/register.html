@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="/static/css/register.css">
+{% endblock %}
+
+{% block content %}
+<section class="register" id="register">
+    <div class="register-container">
+        <form action="" autocomplete="off" method="POST">
+            {{form.hidden_tag()}}
+            {% for field in form if field.widget.input_type != 'hidden' %}
+                <div class="n">
+                    {{field}}
+                    {{field.label}}
+                </div>
+            {% endfor %}
+            <button>ENTER</button>
+        </form>
+    </div>
+</section>
+
+
+{% endblock %}

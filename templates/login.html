@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="/static/css/login.css">
+{% endblock %}
+
+{% block content %}
+<section class="login" id="login">
+    <div class="login-container">
+        <p>WELCOME</p>
+        <p>LOGIN</p>
+        <form action="/login" method="POST">
+            {{form.hidden_tag()}}
+            {% for field in form if field.widget.input_type !='hidden' %}
+            <div>
+                {{field}}
+                {{field.label}}
+                
+            </div>
+            {% endfor %}
+            <button>ENTER</button>
+        </form>
+    </div>
+</section>
+
+
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block head %}
+<link rel="stylesheet" href="/static/css/charts.css">
+{% endblock %}
+
+{% block content %}
+<section class="charts-input" id="charts-input">
+    <div class="input-container">
+        <form autocomplete="off" action="/register" class="form1" method="POST" >
+            <div>
+                <input autocomplete="off" class='wok' type="text" name="state1" placeholder="Enter State...." autocomplete="off" required>
+                <label for="state1" class="label-name1"></label>
+            </div>
+            <div>
+                <input type="text" name="state2" placeholder="Enter State...." autocomplete="off" required>
+                <label for="state2" class="label-name2"></label>
+            </div>
+            <div>
+                <input type="text" name="state3" placeholder="Enter State...." autocomplete="off" required>
+                <label for="state3" class="label-name3"></label>
+            </div>
+            <div>
+                <input type="text" name="state4" placeholder="Enter State...." autocomplete="off" required>
+                <label for="state4" class="label-name4"></label>
+            </div>
+            <div>
+                <input type="text" name="state5" placeholder="Enter State...." autocomplete="off" required>
+                <label for="state5" class="label-name5"></label>
+            </div>
+            <button class="stateChartButton">Enter</button>
+        </form>
+    </div>
+</section>
+
+<section class="charts-intro" id="charts-intro">
+    <div class="button-container"></div>
+    <div class="button2-container"></div>
+    <div class="container">
+        <div class="chartBox">
+            <canvas id="myChart" class="xyz"></canvas>
+        </div>      
+    </div>
+</section>
+
+<script src="https://unpkg.com/axios/dist/axios.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="/static/js/chart-library.js"></script>
+<script src="/static/js/charts.js"></script>
+
+{% endblock %}

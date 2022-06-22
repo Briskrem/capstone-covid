@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+
+{% block style %}
+<link rel="stylesheet" href="/static/style.css">
+{% endblock %}
+
+{% block content %}
+<section class="intro" id="intro">
+    <div class="panel">
+        <h1>WELCOME</h1>
+        <h4>This is the Capstone Covid Statistic Application</h4>
+        <p>To help the public navigate the current covid-19, this application provides user 
+            access to recent, general and comprehensive statistical data on the novel caronavirus. 
+
+        </p>
+    </div>
+</section>
+<section class="map" id="map">
+    
+    <div class="mapper">
+        <h3 ><span>COVID</span> CASES</h3>
+        <div class="mapcontainer" id="mapcontainer"></div>
+    </div> 
+</section>
+<section class="statsistics" id="statistics">
+    <div class="stats">
+        <h3><span>GENERAL</span> DATA</h3>
+        <div class="stat-container" >
+            <ul class="thumb">
+                <li onmouseover="changeStatText(this)" class="list1"><img src="static/pics/beds.jpg" alt=""></li>
+                <li onmouseover="changeStatText(this)" class="list2"><img src="static/pics/diversity.jpg" alt=""></li>
+                <li onmouseover="changeStatText(this)" class="list3"><img src="static/pics/vaxxx.png" alt=""></li>
+            </ul>
+            <div class="imgBox">
+                <h2 class="imgBox-title"><span>US</span></h2>
+                <ul >
+                    <li class="li-1">cases</li>
+                    <li class="li-2">vaccinations</li>
+                    <li class="li-3">general data</li>
+                </ul>
+                <div class="but">
+                    <a href="/search/advanced">Advanced Data</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="sources" id="sources">
+    
+        <h3 class="title"><span>DATA </span>  SOURCES</h3>
+        <div class="source-container" id="source-container">
+            
+            <div class="aggregate-cases">
+                <h1>US aggregate Cases</h1>
+                <div>
+                    {% for key,values in cases.items() if key != 'type' %}
+                    {% if key == 'url' %}
+                        <p>{{key}}:<a href="{{values}}">   Click Here</a></p>
+                    {% else %}
+                        <p>{{key}}: {{values}}</p>
+                    {% endif %}
+                {% endfor %}
+                </div>           
+            </div>
+            <div class="aggregate-deaths">
+                <h1>US aggregate Deaths</h1>
+                <div>
+                    {% for key,values in deaths.items() if key != 'type' %}
+                    {% if key == 'url' %}
+                        <p>{{key}}:<a href="{{values}}">   Click Here</a></p>
+                    {% else %}
+                        <P>{{key}}:  {{values}}</P>
+                    {% endif %}
+                {% endfor %}
+                </div>
+            </div>
+            <div class="aggregate-vaccinations">
+                <h1>US aggregate Vaccination data(distributed, administered, initiated)</h1>
+                <div>
+                    {% for key,values in vaccinations.items() if key != 'type' %}
+                    {% if key == 'url' %}
+                        <p>{{key}}:<a href="{{values}}">   Click Here</a></p>
+                    {% else %}
+                        <p>{{key}}:  {{values}}</p>
+                    {% endif %}
+                {% endfor %}
+                </div>
+            </div>     
+        </div>
+    
+</section>
+<section class="contact" id="contact">
+    <div class="contact-container">
+        <h1><span>CONTACT</span> INFO</h1>
+        <div class="contact-info">
+            <div class="phone">
+                <div>
+                    <img src="/static/pics/phone.png" alt="">
+                </div>
+                <p>Office Number: xxx-xxx-xxxx</p>
+                <p>Fax Number: xxx-xxx-xxxx</p>
+            </div>
+            <div class="email">
+                <div>
+                    <img src="/static/pics/email.png" alt="">
+                </div>
+                <p>Anuthing@hotmail.com</p>
+            </div>
+            <div class="location">
+                <div>
+                    <img src="/static/pics/address.png" alt="">
+                </div>
+                <p>444 E park st, hill city, hawaiie</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="footer" id="footer">
+    <div class="footer-container">
+        <h1><span>CHRISTOPHER</span> JOSEPH</h1>   
+        <h3 class='mok'>YOUR COMPLETE SOLUTIONS</h3>
+        <div class="links">
+            <img src="/static/pics/facebook.png" alt="">
+            <img src="/static/pics/twitter.png" alt="">
+            <img src="/static/pics/instagram.png" alt="">
+        </div>
+        <span class="copyright" style="color:white">&copy2022 Christopher Joseph</span>
+    </div>
+    
+</section>
+<link rel="stylesheet" href="static/css/jquery-jvectormap-2.0.5.css" type="text/css" media="screen"/>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="/static/js/jquery-jvectormap-2.0.5.min.js"></script>
+<script src="/static/js/world.js"></script>
+<script src="/static/js/home.js"></script>
+{% endblock %}
