@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base.html'%}
 {% block head %}
 <link rel="stylesheet" href="/static/css/charts.css">
 {% endblock %}
@@ -31,11 +31,22 @@
         </form>
     </div>
 </section>
-
 <section class="charts-intro" id="charts-intro">
+    <div class="flash-deletedMessage">
+        {% with messages = get_flashed_messages(with_categories = true) %}
+            {% if messages %}
+                {% for category,message in messages%}
+                <p class="{{category}}">{{message}}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+    <div class="compare">
+        <p>Compare State Covid Cases</p>
+    </div>
     <div class="button-container"></div>
     <div class="button2-container"></div>
-    <div class="container">
+    <div class="chartBox-container">
         <div class="chartBox">
             <canvas id="myChart" class="xyz"></canvas>
         </div>      

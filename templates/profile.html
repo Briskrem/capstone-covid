@@ -8,50 +8,29 @@
 
 {% block content %}
 <section id="sidebar">
-    <div class="sidebar">
-        
+    <div class="sidebar">      
         <a href="" class="sidebar-btn"></a>
         <ul class="sidebar-ul">
             <li ><a href="/profile/edit">Edit Profile</a></li>
             <li ><a href="/charts">Charts</a></li>
             <li><a href="/profile/delete">Delete Profile</a></li>
+            <li><a href="#saved-charts">View Charts</a></li>
             <li><a href="">Additional Space</a></li>
-            <li><a href="">Additional Space</a></li>
-        </ul>
-        
+        </ul>  
     </div>
-    
 </section>
 <section class="header-pic" id="header-pic">
-  
     <div class="header-pic-container">
-        <img src="https://i.natgeofe.com/k/cd784533-e5ef-439a-8167-2ba61b0a9a4b/wave_16x9.jpg?w=1200" alt="">
-        
+        <img src="https://i.natgeofe.com/k/cd784533-e5ef-439a-8167-2ba61b0a9a4b/wave_16x9.jpg?w=1200" alt="">   
     </div>
-   
-
     <div class="pic-container">
         <p>{{user.first_name}} {{user.last_name}}</p>
         <div class="profile-pic">
             <img src="{{user.image_url}}" alt="">
         </div>
-    </div> 
-   
+    </div>  
 </section>
-
-
 <section class="info" id="info">
-    <div class="info-settings">
-        <!-- <div>
-            <button class="settings-btn">Settings</button>
-        </div>
-        <div class="settings-options hidding" id="hidding">
-            <ul>
-                <li><a href="">Edit Profile</a></li>
-                <li><a href="">Delete Chart</a></li>
-            </ul>
-        </div> -->
-    </div>
     <div class="info-container">
         <p class="username">{{user.username}}</p>
         <p class="location">{{user.state}}</p>

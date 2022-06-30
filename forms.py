@@ -18,3 +18,9 @@ class Login(FlaskForm):
     username =StringField('Username', validators=[InputRequired(), length(max=30)])
     password =PasswordField('Password', validators=[InputRequired()])
     
+class EditUser(FlaskForm):
+    first_name =StringField('First_name', validators=[InputRequired(), length(max=30)])
+    last_name =StringField('Last_name', validators=[InputRequired(), length(max=30)])
+    email =EmailField('Email', validators=[InputRequired(), length(max=50)])
+    image_url =StringField('Image_url')
+    state =SelectField('State', validators=[InputRequired()])

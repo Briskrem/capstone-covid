@@ -3,7 +3,6 @@
     padding:0;
     box-sizing: border-box;
 }
-
 body{
     min-height: 90vh;
     min-width: 100%;
@@ -11,7 +10,6 @@ body{
     background-size: cover;
     background-attachment: fixed;
 }
-
 
 
 /* intro-input section */
@@ -26,7 +24,6 @@ body{
     justify-content: center;
 }
 input:focus + label{
-    /* background-color: yellow; */
     color: yellow;
     border-bottom: 1px solid yellow;
 }
@@ -38,13 +35,11 @@ input:focus + label{
     justify-content: space-around;
     flex-direction: column;
 }
-
 .fo{
     width: 80%;
     height: 50px;
     position: relative;
-    display: flex;
-    
+    display: flex; 
 }
 .fo input{
     font-size: 15px;
@@ -57,7 +52,6 @@ input:focus + label{
     outline: 0;
 }
 form label{
-    /* /* font-size: 20px; */
     color: white; 
     position: absolute;
     left: 0%; 
@@ -67,8 +61,21 @@ form label{
     pointer-events: none;
     border-bottom: 1px solid white;
 }
+.state-button{
+    color: yellow;
+    background-color: rgb(23, 23, 23);
+    border-radius: 10px;
+    transition: .3s ease;
+}
+.state-button:hover{
+    box-shadow: 0 0 15px yellow;
+}
+
+
 
 /* state-display section */
+
+
 
 #state-display{
     background-color: rgba(0,0,0,.4);
@@ -82,7 +89,7 @@ form label{
 .state-data-container{
     background-color: rgba(23,23,23,.9);
     height: auto;
-    width: 1000px;
+    width: 60rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -106,7 +113,6 @@ form label{
     justify-items: center;   
     align-content: space-evenly; 
     align-items: center;
-    
 }
 
 .tile .state-data{
@@ -122,7 +128,50 @@ form label{
     align-items: center;
     justify-content: center;
 }
+
+
+@media all and (max-width: 376px){
+    .tile .state-data-category{
+        width: 20rem;
+        display: flex;
+        flex-direction: column;
+    }
+    .state-data-container{
+        width: 21.5rem;
+        
+    }
+    .tile .state-data {
+        text-align: center;
+        width: 19rem;
+    }
+    .state-data h3{
+        text-align: center;
+        
+    }
+}
+@media all and (orientation : landscape) and (max-width:820px){
+    .tile .state-data-category{
+        width: 33rem;
+        display: flex;
+        flex-direction: column;
+    }
+    .state-data-container{
+        width: 35rem;
+    }
+    .tile .state-data {
+        text-align: center;
+        width: 31rem;
+    }
+    .state-data h3{
+        text-align: center;
+    }
+}
+
+
 /* general */
+
+
+
 .tile .state-general{
     grid-row: 2/4;
     height: 800px;
@@ -136,7 +185,7 @@ form label{
 }
 .tile .state-general ul li{
     width: 250px;
-    height: 30px;
+    height: 45px;
     background-color: yellow;
     box-shadow: 0 0 20px black;
     color: black;
@@ -171,11 +220,37 @@ form label{
     justify-content: center;
     margin: 8px;
 }
+@media all and (max-width: 376px){
+    .tile .state-general{
+        height: auto;
+        width: 300px;
+    }
+    .tile .state-general ul li{
+        height: 70px;
+        width: 270px;
+    }
+}
+@media all and (orientation : landscape) and (max-width:820px){
+    .tile .state-general{
+        height: auto;
+        width: 31rem;
+        padding: 20px 0;
+    }
+    .tile .state-general ul li{
+        height: 70px;
+        width: 29rem;
+    }
+}
+
+
+
 /* vaccines */
+
+
 
 .tile .state-vaccines ul li{
     width: 300px;
-    height: 30px;
+    height: 35px;
     background-color: yellow;
     box-shadow: 0 0 20px black;
     color: black;
@@ -185,12 +260,38 @@ form label{
     align-items: center;
     justify-content: center;
     margin: 8px;
-    
 }
+@media all and (max-width: 376px){
+    .tile .state-vaccines ul li{
+        width: 270px;
+        height: 70px;
+    }
+    .tile .state-vaccines{
+        height: auto;
+        width: 300px;
+    }
+}
+@media all and (orientation : landscape) and (max-width:820px){
+    .tile .state-vaccines ul li{
+        width: 29rem;
+        height: 70px;
+    }
+    .tile .state-vaccines{
+        height: auto;
+        width: 31rem;
+        padding: 20px 0;
+    }
+}
+
+
+
 /* beds */
+
+
+
 .tile .state-beds ul li{
     width: 300px;
-    height: 30px;
+    height: 35px;
     background-color: yellow;
     box-shadow: 0 0 20px black;
     color: black;
@@ -200,4 +301,41 @@ form label{
     align-items: center;
     justify-content: center;
     margin: 8px;
+}
+
+
+@media all and (max-width: 376px){
+    .tile .state-beds ul li{
+        height: 70px;
+        width:270px;
+        text-align: center;
+    }
+    .tile .state-beds{
+        height: auto;
+        width: 300px;
+    }
+    .tile .state-beds h1{
+        text-align: center;
+    }
+    .state-data-container > div{
+        width: 23.5rem;
+    }
+}
+@media all and (orientation : landscape) and (max-width:820px){
+    .tile .state-beds ul li{
+        height: 70px;
+        width:29rem;
+    }
+    .tile .state-beds{
+        height: auto;
+        width: 31rem;
+        padding: 20px 0;
+    }
+    .tile .state-beds h1{
+        text-align: centerf;
+    }
+    .state-data-container > div{
+        width: 23.5rem;
+        padding: 10px;
+    }
 }

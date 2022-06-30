@@ -1,3 +1,4 @@
+
 #login{
     height: 100vh;
     width: 100%;
@@ -9,7 +10,7 @@
 .login-container{
     color: white;
     height: 400px;
-    width: 600px;
+    width: 25em;
     background-color: rgb(23,23,23);
     border-radius: 10px;
     box-shadow: 0 0 30px black;
@@ -30,7 +31,7 @@ form div{
     position: relative;
     display: flex;
     height: 50px;
-    width: 300px;
+    width: 20rem;
     margin: 20px;
 }
 .login-container p:nth-child(1){
@@ -63,11 +64,34 @@ form div{
     padding-top: 20px;
 }
 input:focus + label{
-    
     color: yellow;
     border-bottom: 1px solid yellow;
 }
-/* input:focus + label{
-    color: yellow;
-    border-bottom: 1px solid yellow;
-} */
+
+
+@media all and (max-width: 376px){
+    #login{
+        width: 100%;
+        padding: 20px;
+    }
+    .login-container{
+        width: 20rem;
+        padding: 20px;
+    }
+    .login-container p:nth-child(1){
+        
+        font-size: 27px;
+        letter-spacing: 10px;
+    }
+    .login-container p:nth-child(2){
+        font-size: 20px;
+        margin: 10px;
+    }
+    .login-container input{
+        width: 15rem;
+    }
+    .login-container label{
+        left: 12px;
+       width: 18rem;
+    }
+} 

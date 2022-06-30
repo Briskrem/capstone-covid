@@ -8,6 +8,22 @@ abbreviations={'AK':'Alaska','AL':'Alabama','AR':'Arkansas','AZ':'Arizona','CA':
 
 $('.state-button').on('click', getValue )
 
+$('.toggle-button').on('click', function(e){
+    $('.nav-links').toggleClass('active')
+    $('header').toggleClass('active')
+   
+    if($('header').hasClass('active')){
+        console.log('added')
+        window.addEventListener('scroll', noScroll)
+    }else{
+        console.log('removed')
+        window.removeEventListener('scroll', noScroll)
+    }
+})
+function noScroll(){
+   window.scrollTo(0,0)
+}
+
 function getValue(e){
     e.preventDefault()
     state = $('.fo input').val()
@@ -21,7 +37,6 @@ function getValue(e){
 }
 
 function createStateInfo(info){
-    console.log(info)
     createStateName(info)
     createStateGeneralData(info)
     createStateVaccine(info)
@@ -30,14 +45,13 @@ function createStateInfo(info){
     $('.state-data-container').addClass('tile');
 }
 
-
 function createStateName(info){
     STATE = abbreviations[info.state]
-    console.log(STATE)
     $('.state-data h3').text(STATE)
 }
 
 function createStateGeneralData(info){
+    $('.state-general ul').empty()
     $(`<li><h1>GENERAL STATISTICS</h1></li>`).appendTo('.state-general ul');
     $(`<li>Cases: ${info.actuals.cases}</li>`).appendTo('.state-general ul');
     $(`<li>Deaths: ${info.actuals.deaths}</li>`).appendTo('.state-general ul');
@@ -53,6 +67,7 @@ function createStateGeneralData(info){
 }
 
 function createStateVaccine(info){
+    $('.state-vaccines ul').empty()
     $(`<li><h1>VACCINE STATISTICS</h1></li>`).appendTo('.state-vaccines ul');
     $(`<li>Additional doses: ${info.actuals.vaccinationsAdditionalDose}</li>`).appendTo('.state-vaccines ul');
     $(`<li>Completed vaccinations: ${info.actuals.vaccinationsCompleted}</li>`).appendTo('.state-vaccines ul');
@@ -61,6 +76,7 @@ function createStateVaccine(info){
 }
 
 function createStateBeds(info){
+    $('.state-beds ul').empty()
     $(`<li><h1>HOSPITAL BED STATISTICS</h1></li>`).appendTo('.state-beds ul');
     $(`<li>Bed capacity: ${info.actuals.hospitalBeds.capacity}</li>`).appendTo('.state-beds ul');
     $(`<li>Beds used for covid: ${info.actuals.hospitalBeds.currentUsageCovid}</li>`).appendTo('.state-beds ul');

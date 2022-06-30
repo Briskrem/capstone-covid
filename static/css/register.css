@@ -25,7 +25,6 @@
     justify-content: center; 
 }
 .register input{
-    /* margin: 0 20px; */
     margin: 10px 0;
     width: 400px;
     background: transparent;
@@ -36,7 +35,6 @@
     text-align: center;
 }
 input:focus + label{
-    
     color: yellow;
     border-bottom: 1px solid yellow;
 }
@@ -45,7 +43,20 @@ form div{
     position: relative;
     z-index: 0;
 }
-
+form button{
+    margin-top: 40px;
+    width: 150px;
+    height: 30px;
+    border-radius: 10px;
+    color: yellow;
+    background-color: rgb(23,23,23,.9);
+    box-shadow: 0 0 10px black;
+    transition: .6s ease;
+}
+form button:hover{
+    transform: translateY(-10px);
+    letter-spacing: 5px;
+}
 .register-container label{
     color: white;
     position: absolute;
@@ -62,7 +73,6 @@ form div{
 .n:nth-child(8) label{
     border-bottom: 1px solid  transparent;
 }
-   
 form #state{
     width: 350px;
     height: 20px;
@@ -71,4 +81,22 @@ form #state{
     border: 1px solid yellow;
     background-color: rgb(23,23,23,.9);
     color: white;
+}
+
+
+@media all and (max-width: 500px){
+    .register-container{
+        width: 400px;
+    }
+    .register input{
+        width: 325px;
+    }
+    form #state{
+        width: 300px;
+    }
+    .n:nth-child(6) label{
+        width: 100px;
+        left: 20px;
+        border-bottom: 1px solid  transparent;
+    }
 }

@@ -5,23 +5,32 @@
 {% endblock %}
 
 {% block content %}
-<section class="intro" id="intro">
+<section id="welcome"> 
+    {% with messages = get_flashed_messages(with_categories = true) %}
+        {% if messages %}
+            {% for category,message in messages%}
+                <p class="{{category}}">{{message}}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+</section>
+<section class="intro" id="intro"> 
     <div class="panel">
         <h1>WELCOME</h1>
         <h4>This is the Capstone Covid Statistic Application</h4>
         <p>To help the public navigate the current covid-19, this application provides user 
             access to recent, general and comprehensive statistical data on the novel caronavirus. 
-
         </p>
     </div>
 </section>
+
 <section class="map" id="map">
-    
     <div class="mapper">
         <h3 ><span>COVID</span> CASES</h3>
         <div class="mapcontainer" id="mapcontainer"></div>
     </div> 
 </section>
+
 <section class="statsistics" id="statistics">
     <div class="stats">
         <h3><span>GENERAL</span> DATA</h3>
@@ -45,9 +54,10 @@
         </div>
     </div>
 </section>
-<section class="sources" id="sources">
+<!-- <section class="sources" id="sources">
     
         <h3 class="title"><span>DATA </span>  SOURCES</h3>
+        {% if all == 'true'%}
         <div class="source-container" id="source-container">
             
             <div class="aggregate-cases">
@@ -74,20 +84,25 @@
                 {% endfor %}
                 </div>
             </div>
+            {% if vaccinations == 'true' %}
             <div class="aggregate-vaccinations">
                 <h1>US aggregate Vaccination data(distributed, administered, initiated)</h1>
                 <div>
-                    {% for key,values in vaccinations.items() if key != 'type' %}
-                    {% if key == 'url' %}
-                        <p>{{key}}:<a href="{{values}}">   Click Here</a></p>
-                    {% else %}
-                        <p>{{key}}:  {{values}}</p>
-                    {% endif %}
-                {% endfor %}
+                    
+                        {% for key,values in vaccinations.items() if key != 'type' %}
+                            {% if key == 'url' %}
+                                <p>{{key}}:<a href="{{values}}">   Click Here</a></p>
+                            {% else %}
+                                <p>{{key}}:  {{values}}</p>
+                            {% endif %}
+                        {% endfor %}
+                    
+                    
                 </div>
             </div>     
+            {% endif %}
         </div>
-    
+        {% endif %} -->
 </section>
 <section class="contact" id="contact">
     <div class="contact-container">

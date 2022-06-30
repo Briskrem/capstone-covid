@@ -2,11 +2,9 @@
 
 {% block head %}
 <link rel="stylesheet" href="/static/css/register.css">
-
 {% endblock %}
 
 {% block content %}
-
 <section class="register" id="register">
     <div class="register-container">
         <form action="" autocomplete="off" method="POST">
@@ -21,5 +19,26 @@
         </form>
     </div>
 </section>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<script>
+    $('.toggle-button').on('click', function(e){
+        $('.nav-links').toggleClass('active')
+        $('header').toggleClass('active')
+
+        if($('header').hasClass('active')){
+            console.log('added')
+            window.addEventListener('scroll', noScroll)
+        }else{
+            console.log('removed')
+            window.removeEventListener('scroll', noScroll)
+        }
+    })
+
+    function noScroll(){
+    window.scrollTo(0,0)
+    }
+
+</script>
 
 {% endblock %}

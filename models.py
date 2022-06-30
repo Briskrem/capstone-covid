@@ -31,13 +31,10 @@ class User(db.Model):
     @classmethod
     def register(cls, first_name, last_name, username, password, email, state, image_url):
         hashed_pwd = bcrypt.generate_password_hash(password).decode('UTF-8')
-        # hashed = bcrypt.generate_password_hash(password)
-        # hashed_utf8 = hashed.decode('utf8')
         return cls(username=username, password=hashed_pwd, email=email, first_name=first_name, last_name=last_name, state=state, image_url=image_url)
     
     @classmethod
     def authenticate(cls, username, password):
-        print('ttttttttttttttrttttttttttttttttttt')
         user = User.query.filter_by(username=username).first()
         if user:
             print(user.username)

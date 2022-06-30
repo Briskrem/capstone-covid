@@ -1,14 +1,27 @@
+ $(document).ready(removeMessage)
  
-
+ $('.toggle-button').on('click', function(e){
+     $('.nav-links').toggleClass('active')
+     $('header').toggleClass('active')
+    
+     if($('header').hasClass('active')){
+         console.log('added')
+         window.addEventListener('scroll', noScroll)
+     }else{
+         console.log('removed')
+         window.removeEventListener('scroll', noScroll)
+     }
+ })
+ function noScroll(){
+    window.scrollTo(0,0)
+}
 
 function loadMap(){
     $.ajax({
         url:'https://api.covidactnow.org/v2/states.json?apiKey=aed6be26a1674a1994ccbc0ff0d76224',
 
         success: function(data){
-            // console.log(data.annotations)
             var infectedData = {};
-    
             var stateDeaths = {}
             for(var i=0; i< data.length; i++){
                 var element= data[i];
@@ -36,14 +49,12 @@ function loadMap(){
                     
                 }
             });
-            console.log(infectedData) 
-        }                
-            
+        }                     
     })
-
-   
 }
+
 loadMap();
+
 // Store the response in 'data' instead of making an api call for each hover. Much faster!
 let data;
 function changeStatText(obj){
@@ -54,10 +65,7 @@ function changeStatText(obj){
             url:'/us/aggregate',
             success: function(bigData){
                 data = bigData
-                console.log(data.annotations.deaths.sources)
-                // console.log(`sources for US deaths =${data.annotations.deaths.sources}`)
-                // console.log(`sources for US "vaccinesDistributed" =${data.annotations.vaccinesDistributed}`)
-                
+                console.log(data.annotations.deaths.sources)                
                 changeStatText2(obj, data)
             }
         })
@@ -87,4 +95,11 @@ function changeStatText2(obj, data){
         $('.imgBox').css("background-image", "url(/static/pics/vaxxx.png)")
     }
 
+}
+
+function removeMessage(){
+    setTimeout(function() {
+        console.log('metoo')
+        $('.flash-welcome').fadeOut('fast')
+    }, 3000)
 }

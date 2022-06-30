@@ -5,6 +5,15 @@
 {% endblock %}
 
 {% block content %}
+<div>
+    {% with messages = get_flashed_messages(with_categories = true) %}
+        {% if messages %}
+            {% for category,message in messages%}
+                <p class="{{category}}">{{message}}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+</div>
 <section class="login" id="login">
     <div class="login-container">
         <p>WELCOME</p>
@@ -14,14 +23,41 @@
             {% for field in form if field.widget.input_type !='hidden' %}
             <div>
                 {{field}}
-                {{field.label}}
-                
+                {{field.label}}              
             </div>
             {% endfor %}
             <button>ENTER</button>
         </form>
     </div>
 </section>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<script>
+    $('.toggle-button').on('click', function(e){
+        $('.nav-links').toggleClass('active')
+        $('header').toggleClass('active')
+    
+        if($('header').hasClass('active')){
+            console.log('added')
+            window.addEventListener('scroll', noScroll)
+        }else{
+            console.log('removed')
+            window.removeEventListener('scroll', noScroll)
+        }
+    })
+
+    function noScroll(){
+    window.scrollTo(0,0)
+    }
+
+    $(document).ready(removeMessage)
+    
+    function removeMessage(){
+    setTimeout(function() {
+        $('.flash-logout').fadeOut('fast')
+    }, 3000)
+}
+</script>
 
 
 {% endblock %}

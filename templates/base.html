@@ -16,14 +16,34 @@
     <title>Capstone</title>
 </head>
 <body>
+    <section class="spinner">
+        <div class="loader">
+            <span style="--v:1"></span>
+            <span style="--v:2"></span>
+            <span style="--v:3"></span>
+            <span style="--v:4"></span>
+            <span style="--v:5"></span>
+            <span style="--v:6"></span>
+            <span style="--v:7"></span>
+            <span style="--v:8"></span>
+            <span style="--v:9"></span>
+            <span style="--v:10"></span>
+           
+        </div>
+    </section>
+    
     <header>
         <a href="" class="logo">LOGO</a>
+        <a href="#" class="toggle-button">
+            <div class="mar"></div>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </a>
         <nav>           
             <ul class="nav-links">
                 <li><a href="/">Home</a></li>
                 <li><a href="/profile">Profile</a></li>
-                <li><a href="#sources">Sources</a></li>
-                
                 {% if not g.user%}
                     <li><a href="/login">Login</a></li>
                     <li><a href="/register">Register</a></li>
@@ -32,17 +52,18 @@
                     <li><a href="/search/advanced">Advanced Search</a></li>
                     <li><a href="/charts">Charts</a></li>
                 {% endif %}
-                <!-- {% if user%}
-                    <li class="drop-menu"><a href=""><i class="fa-solid fa-bars"></i></a></li>
-                {% endif %} -->
-               
-
-                
-
             </ul>
-        </nav>
-        
+        </nav>  
     </header>
+    
+    <script>
+        let spinner = document.querySelector('.spinner');
+
+        window.addEventListener('load', removeLoader)
+        function removeLoader(){
+            spinner.style.display = 'none';
+        }
+    </script>
     {% block content %}
     {% endblock %}
 </body>
