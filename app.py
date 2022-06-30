@@ -3,13 +3,14 @@ import requests
 import requests.exceptions
 from models import db, User, PieChart, connect_db
 from forms import AddUser, Login, EditUser
+import os
 import json
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///covid_db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL').replace("://", "ql://", 1)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['DEBUG_TB_INTERCEPT_REDIRECT'] = False
-app.config['SECRET_KEY'] = '123456'
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY','heroku_push')
 
 connect_db(app)
 
