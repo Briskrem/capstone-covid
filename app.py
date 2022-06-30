@@ -121,7 +121,7 @@ def register():
         )
         db.session.add(user)
         db.session.commit()
-        session['user_id'] = user.user_id
+        session['user_id'] = user.id
         return redirect('/')
     return render_template('register.html', form=form)
 
