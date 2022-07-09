@@ -3,13 +3,13 @@
     padding:0;
     box-sizing: border-box;
 }
-body{
+/* body{
     min-height: 90vh;
     min-width: 100%;
     background-image: url(/static/pics/COVID-19.jpg);
     background-size: cover;
     background-attachment: fixed;
-}
+} */
 
 
 /* intro-input section */

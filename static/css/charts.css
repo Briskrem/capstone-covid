@@ -1,6 +1,11 @@
 /* chart-input section */
+body{
+    overflow-y: hidden;
+}
+
 #charts-input{
-    min-height: 60px;
+    
+    
     width: 100%;
     background-color: rgba(0,0,0,.9);
     display: flex;
@@ -13,15 +18,15 @@
 }
 .form1 div{
     position: relative;
-    margin: 0 20px;
+    margin: 0 1.3rem;
 }
 .form1 input{
-    margin: 0 20px;
+    margin: 0 1.3rem;
     background: transparent;
     border: none;
     outline: none;
     color: white;
-    padding-top: 10px;
+    padding-top: .6rem;
 }
 input:focus + label{
     
@@ -31,7 +36,7 @@ input:focus + label{
 .form1 label{
     
     border-bottom: 1px solid white;
-    width: 30px;
+    
     position: absolute;
     left: 0%; 
     top: -10px;
@@ -43,7 +48,7 @@ input:focus + label{
     background-color: rgba(23,23,23);
     color: yellow;
     height: 50px;
-    width: 40px;
+    width: 2.5rem;
     border-radius: 10px;
     transition: .3s ease;
 }
@@ -52,55 +57,57 @@ input:focus + label{
 }
 
 
-@media all and (max-width: 500px){
+@media all and (max-width: 501px){
+   
+  
     .form1{
         flex-direction: column;
-        height: 400px;
+        height: 26.5rem;
     }
     .form1 div{
-        margin: 10px;
+        margin: .6rem;
     }
     .stateChartButton{
         align-self: center;
-        margin-top: 30px;
+        margin-top: 2rem;
         background-color: rgba(23,23,23);
         color: yellow;
         height: 30px;
-        width: 140px;
-        border-radius: 10px;
+        width: 9.3rem;
+        border-radius: .6rem;
     }
     .form1 input{
-        width: 300px;
-        padding-top: 30px;
+        width: 20rem;
+        padding-top: 2rem;
     }
     .form1 label{
-        width: 340px;
+        width: 22.5rem;
         height: 140%;
     }
 }
 @media all and (orientation : landscape) and (max-width:820px){
     .form1{
         flex-direction: column;
-        height: 400px;
-        width: 400px;
+        height: 26.5rem;
+        width: 18.2rem;
     }
     .form1 div{
-        margin: 15px;
+        margin: 1rem;
     }
     .stateChartButton{
         
         position: relative;
         left: -100px;
         top: -200px;
-        width: 40px;
+        width: 2.5rem;
         height: 250px;
     }
     .form1 input{
-        width: 300px;
+        width: 20rem;
         padding-top: 15px;
     }
     .form1 label{
-        width: 340px;
+        width: 22.6rem;
         height: 140%;
     }
 }
@@ -114,7 +121,7 @@ input:focus + label{
     display: none;
 }
 #charts-intro{
-    min-height: auto;
+    
     width: 100%;
     background-color: rgba(0,0,0,.4);
     display: flex;
@@ -124,7 +131,7 @@ input:focus + label{
 }
 #charts-intro .chartBox-container{
     height: 400px;
-    width: 600px;
+    width: 40rem;
     background-color: white;
     display: flex;
     align-items: center;
@@ -135,10 +142,10 @@ input:focus + label{
 }
 canvas{
     height: 600px;
-    width: 600px;
+    width: 38rem;
 }
 .save-button{
-    margin: 30px;
+    margin: 2px;
     background-color: rgba(23,23,23);
     color: yellow;
     height: 20px;
@@ -154,7 +161,7 @@ canvas{
     box-shadow: 0 0 30px yellow;
 }
 .delete-button{
-    margin: 30px;
+    margin: 2rem;
     background-color: rgba(23,23,23);
     color: yellow;
     height: 20px;
@@ -170,7 +177,7 @@ canvas{
     box-shadow: 0 0 30px yellow;
 }
 .compare{
-    margin: 20px;
+    margin: 1.3rem;
 }
 .compare p{
     display: flex;
@@ -178,7 +185,7 @@ canvas{
     justify-content: center;
     text-align: center;
     font-size: 20px;
-    width: 400px;
+    width: 26.5rem;
     height: 70px;
     border-radius: 10px;
     background-color: rgba(23,23,23);
@@ -187,12 +194,12 @@ canvas{
 }
 
 
-@media all and (max-width:376px){
+@media all and (max-width:520px){
     #charts-intro .chartBox-container{
-        width: 340px;
+        width: 23.3rem;
     }
     .compare p{
-        width: 340px;
+        width: 23.3rem;
         font-size: 17px;
     }
     canvas{
@@ -203,6 +210,6 @@ canvas{
 @media all and (orientation : landscape) and (max-width:820px){
     canvas{
         height: 600px;
-        width: 600px;
+        width: 20rem
     }
 }

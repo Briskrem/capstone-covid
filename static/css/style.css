@@ -3,17 +3,24 @@
     padding:0;
     box-sizing: border-box;
 }
+html{
+    font-size: 15px;
+    overflow-x: hidden;
+    /* height: 100%; */
+}
 .spinner{
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
+    width: 100%;
     background-color: rgb(23, 23, 23);
-    
+    margin-bottom: 100px;
+    overflow-y: hidden;
 }
 .loader{
     position: relative;
-    width: 120px;
+    width: 8rem;
     height: 120px;
 }
 .loader span{
@@ -29,7 +36,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 15px;
+    width: 1rem;
     height: 15px;
     border-radius: 50%;
     background-color: yellow;
@@ -51,12 +58,12 @@
     }
 }
 #welcome span{
-    width: 700px;
+    width: 49.5rem;
     height: 90px;
     background-color: pink;
 }
 .wel{
-    width: 700px;
+    width: 49.5rem;
     height: 90px;
     background-color: pink;
 }
@@ -71,7 +78,7 @@
     box-shadow: 0 0 15px black;
     border-radius: 5px;
     padding: 15px;
-    width: 200px;
+    width: 13rem;
     text-align: center;
 }
 .flash-invalid{color: yellow;
@@ -85,7 +92,7 @@
     border-radius: 5px;
     padding: 15px;
     height: 60px;
-    width: 300px;
+    width: 20rem;
     text-align: center;
 }
 .flash-logout{
@@ -100,7 +107,7 @@
     border-radius: 5px;
     padding: 15px;
     height: 60px;
-    width: 300px;
+    width: 20rem;
     text-align: center;
 }
 .flash-chart_added{
@@ -116,7 +123,7 @@
     border-radius: 5px;
     padding: 15px;
     height: 60px;
-    width: 300px;
+    width: 20rem;
     text-align: center;
 }
 .flash-chart_deleted{
@@ -131,8 +138,8 @@
     box-shadow: 0 0 15px black;
     border-radius: 5px;
     padding: 15px;
-    height: 60px;
-    width: 300px;
+    height: 4rem;
+    width: 20rem;
     text-align: center;
 }
 .flask-profile-deleted{
@@ -152,6 +159,7 @@
     text-align: center;
 }
 body{
+    /* height: 100%; */
     overflow-x: hidden;
     min-height: 90vh;
     width: 100%;
@@ -179,10 +187,11 @@ header{
     padding: 30px 10%;
     background-color: rgb(23, 23, 23);
     height: .5rem;
+    width: 100%;
 }
 .logo{
     cursor: pointer;
-    font-size: 30px;
+    font-size: 2rem;
 }
 header a .logo:hover{
     color: red;
@@ -193,7 +202,7 @@ header a .logo:hover{
 }
 .nav-links li{
     display: inline-block;
-    padding: 0px 20px;
+    padding: 0px 1.3rem;
 }
 .nav-links li a{
     transition: all .3s ease 0s;
@@ -203,23 +212,23 @@ header a .logo:hover{
 }
 .toggle-button{
     position: absolute;
-    top: .75rem;
-    right: 1rem;
+    top: 15px;
+    right: 20px;
     display: none;
     flex-direction: column;
     height: 30px;
-    width: 21px;
+    width: 1.3rem;
 }
 .toggle-button .bar{
     display: block;
     margin: 5px 0;
     background-color: white;
     height: 3px;
-    width: 20px;
+    width: 1.3rem;
 }
 
 
-@media all and (max-width: 376px){
+@media all and (max-width: 520px){
     header{      
         flex-direction: column;      
         height: 0;
@@ -233,29 +242,35 @@ header a .logo:hover{
     }
     .toggle-button{
         display: block;
-        z-index: 1000;
+        z-index: 10000;
+        
     }
     nav{
-        height: 300px;
+        height: 20rem;
         width: 100%;
+       
     }
     .nav-links{
+        
         display: none;
-        height: 300px;
+        height: 20rem;
         width: 100%;
         flex-direction: column;  
     }  
     .nav-links li{
         text-align: center;
-        margin: 20px;
+        margin: 1.3rem;
     }
     .nav-links.active{
         display: flex;
     }
     header.active{
-        padding-top: 150px;
+        position: fixed;
+        
+        padding-top: 10rem;
         height: 100vh;
         z-index: 1000;
+        /* padding-bottom: 1rem; */
     }
 }
 @media all and (orientation: landscape) and (max-width: 820px){
@@ -314,26 +329,26 @@ header a .logo:hover{
 }
 .panel h1{
     color: #9f9b9b;
-    font-size: 40px;
-    margin-bottom: 25px;
+    font-size: 2.6rem;
+    margin-bottom: 1.6rem;
 }
 .panel h4{
     color: yellow;
-    font-size: 25px;
+    font-size: 1.6rem;
 }
 .panel p{
-    padding: 20px;
+    padding: 1.3rem;
     color: white;
-    font-size: 20px;
+    font-size: 1.3rem;
 }
 
-@media all and (max-width:376px){
+@media all and (max-width:520px){
     .panel h1{
-        font-size: 30px;
+        font-size: 2rem;
     }
     .panel h4{
         color: yellow;
-        font-size: 20px;
+        font-size: 1.3rem;
     }
     .panel p{
         padding: 30px;
@@ -388,7 +403,7 @@ header a .logo:hover{
 }
 
 
-@media only screen and (max-width:376px) {
+@media only screen and (max-width:520px) {
     .mapcontainer{
         height: 20rem;
         width: 20rem;
@@ -470,8 +485,8 @@ header a .logo:hover{
 }
 .thumb li{
     list-style: none;
-    width: 70px;
-    height: 70px;
+    width: 4.5rem;
+    height: 4.5rem;
     background: rgb(0, 0, 0);
     margin: 10px 0;
     padding: 2px;
@@ -523,8 +538,8 @@ header a .logo:hover{
 }
 .imgBox .but{
     position: relative;
-    width: 255px;
-    height: 50px;
+    width: 21rem;
+    height: 3.1rem;
 }
 .imgBox .but a{
     position: absolute;
@@ -570,7 +585,7 @@ header a .logo:hover{
     left: 50%;
     transform: translateX(-50%);
     bottom: -34px;
-    width: 30px;
+    width: 2rem;
     height: 10px;
     background:yellow;
     border-radius: 10px;
@@ -582,7 +597,7 @@ header a .logo:hover{
     left: 50%;
     transform: translateX(-50%);
     top: 26px;
-    width: 30px;
+    width: 2rem;
     height: 10px;
     background:yellow;
     border-radius: 10px;
@@ -610,7 +625,7 @@ header a .logo:hover{
 }
 .imgBox h2{
     text-align: center;
-    width: 600px;
+    width: 40rem;
     height: 40px;
     display: inline-block;
     margin-bottom: 25px;
@@ -639,11 +654,11 @@ header a .logo:hover{
 }
 
 
-@media all and (max-width: 376px){
+@media all and (max-width: 520px){
     .thumb li{
-        width: 50px;
-        height: 50px;
-        margin: 30px 0;
+        width: 2.3rem;
+        height: 2.3rem;
+        margin: 2rem 0;
     }
     .stat-container{
         width: 18rem;
@@ -663,8 +678,8 @@ header a .logo:hover{
         position: absolute;
         bottom: 50px;
         margin-top: 10px;
-        width: 200px;
-        height: 40px;
+        width: 13.3rem;
+        height: 2.6rem;
     }
     .imgBox ul{
         margin-top: 0;
@@ -705,13 +720,13 @@ header a .logo:hover{
         position: absolute;
         bottom: 35px;
         margin-top: 10px;
-        width: 200px;
+        width: 13.3rem;
         margin: 10px;
-        height: 40px;
+        height: 2.6rem;
     }
     .thumb li{
-        width: 50px;
-        height: 50px;
+        width: 3.3rem;
+        height: 3.3rem;
         margin: 30px 0;
     }
     .imgBox h2{
@@ -833,7 +848,7 @@ header a .logo:hover{
 
 
 #contact{
-    min-height: 10rem;
+    width: 100%;
     background-color: rgb(0,0,0,.4);
     padding-top: 10px;
     display: flex;
@@ -841,8 +856,8 @@ header a .logo:hover{
     align-items: center;
 }
 .contact-container{
-    width: 1000px;
-    height: 200px;
+    width: 99.6rem;
+    height: 13.3rem;
     background-color: rgb(23,23,23,.9);
     display: flex;
     flex-direction: column;
@@ -858,8 +873,8 @@ header a .logo:hover{
     justify-content: space-evenly;
 }
 .contact-info > div{
-    width: 250px;
-    height: 120px;
+    width: 16.6rem;
+    height: 8rem;
     background-color: rgb(23,23,23,.9);
     margin: 10px;
     border-radius: 10px;
@@ -868,8 +883,8 @@ header a .logo:hover{
     color: white;
 }
 .contact-container > div > div > div{
-    height: 50px;
-    width: 50px;
+    height: 3.3rem;
+    width: 3.3rem;
 }
 .contact-container img{
     height: 100%;
@@ -888,7 +903,7 @@ header a .logo:hover{
 }
 
 
-@media all and (max-width: 376px){
+@media all and (max-width: 520px){
     #contact{
         padding-top: 100px;
     }
@@ -898,18 +913,18 @@ header a .logo:hover{
         justify-content: space-evenly;
     }
     .contact-container{
-        width: 300px;
-        height: 750px;
+        width: 20rem;
+        height: 50rem;
     }
     .contact-info > div{
-        width: 200px;
-        height: 200px;
+        width: 13.3rem;
+        height: 13.3rem;
     }   
 }
 @media all and (orientation: landscape) and (max-width: 820px){
     .contact-container{  
-        height: 425px;
-        width: 500px;
+        height: 28.3rem;
+        width: 33.3rem;
     }
     .contact-info{
         
@@ -918,8 +933,8 @@ header a .logo:hover{
     }
     .contact-info > div{
         z-index: 100;
-        width: 355px;
-        height: 100px;
+        width: 23.6rem;
+        height: 6.6rem;
     }
 }
 
@@ -955,8 +970,8 @@ header a .logo:hover{
     color: yellow;
 }
 .footer-container img{
-    height:35px;
-    width: 35px;
+    height:2.1rem;
+    width: 2.1rem;
     margin: 0 10px;
     filter: grayscale(1);
     transition: .3s ease;
