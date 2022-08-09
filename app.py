@@ -2,14 +2,17 @@ from flask import Flask, flash, jsonify, render_template, redirect, session, req
 import requests
 import requests.exceptions
 from models import db, User, PieChart, connect_db
-from forms import AddUser, Login, EditUser
-import os
+from forms import AddUser, Login, EditUser, UploadFile
+from werkzeug.utils import secure_filename
+import os, fnmatch
 import json
+
 
 app = Flask(__name__)
 # app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'postgresql:///covid_db')
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'postgresql:///covid_db').replace("://", "ql://", 1)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['UPLOAD_FOLDER'] = 'static/files'
 app.config['DEBUG_TB_INTERCEPT_REDIRECT'] = False
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY','heroku_push')
 
@@ -126,12 +129,54 @@ def register():
         return redirect('/')
     return render_template('register.html', form=form)
 
-@app.route('/profile')
+@app.route('/profile', methods=['GET', 'POST'])
 def profile():
     if not g.user:
         return redirect('/login')
+ 
     user=User.query.get(g.user.id)
-    return render_template('profile.html', user=user)
+    form = UploadFile()
+
+    if form.validate_on_submit():
+        print('HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH')
+        folder_path = r'static/files'
+        urlll = g.user.image_url.replace('static/files/', '', 1)
+        print(urlll)
+
+        def list_dir(dir):
+            print('ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo')
+            file_names = os.listdir(dir)
+            for fname in file_names:
+                if fname == urlll:
+                    os.remove(os.path.abspath(os.path.join(dir, fname)))
+                    print('FLLLLLLLLLYYYYYYYYYYYYYYYYYYYYYYYY')
+                print('filename: ' + fname)
+                print('fpath: ' + os.path.abspath(os.path.join(dir, fname)), sep='\n')
+        
+        list_dir(folder_path)
+     
+        file=form.file.data
+        fileName = file.filename
+        file.save(os.path.join(os.path.abspath(os.path.dirname(__file__)), app.config['UPLOAD_FOLDER'], secure_filename(file.filename)))
+
+        def find(pattern, path):
+            print('7777777777777777777777777777')
+            result = []
+            for root, dirs, files in os.walk(path):
+                for name in files:
+                    if fnmatch.fnmatch(name, pattern):
+                        result.append(os.path.join(root, name))
+                        print(result)
+            print(result)
+            user.image_url = result[0]
+            db.session.add(user)
+            db.session.commit()
+            return result
+
+        find(fileName, folder_path)
+
+        return redirect('/profile')
+    return render_template('profile.html', user=user, form=form)
 
 @app.route('/profile/edit', methods=['GET', 'POST'])
 def edit_profile():

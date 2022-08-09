@@ -30,7 +30,7 @@ header{
     display: flex;
     width: 200px;
     height: 100%;
-    background-color: yellow;
+    background-color: rgb(92, 101, 230);
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -46,7 +46,7 @@ header{
 }
 .sidebar ul li a{
     text-decoration: none;
-    color: white;
+    color: yellow;
     font-size: 25px;
     text-align: center;
     display: block;
@@ -61,7 +61,7 @@ header{
     padding: 0 10px;
     font-size: 40px;
     text-decoration: none;
-    color: yellow;
+    color: rgb(92, 101, 230);
     margin-bottom: 40px;
     display: inline-block;
     text-rendering: auto;
@@ -158,7 +158,29 @@ header{
     height: 100%;
     width: 100%;
 }
-
+.upload-file{
+    position: absolute;
+    top: 20rem;
+    left: 7rem;
+    height: 1.4rem;
+    width: 20rem;
+    background-color: rgb(120, 107, 107);
+    color: yellow;
+    border-radius: .2rem;
+   
+}
+.upload-submit{
+    border: none;
+    position: absolute;
+    top: 23rem;
+    left: 7rem;
+    height: 2rem;
+    width: 20rem;
+    background-color: rgb(23, 23, 23);
+    color: yellow;
+    box-shadow: 0 0 10px black;
+    border-radius: 5rem;
+}
 
 @media all and (max-width: 500px){
     .pic-container p{

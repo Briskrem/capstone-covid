@@ -27,7 +27,13 @@
         <p>{{user.first_name}} {{user.last_name}}</p>
         <div class="profile-pic">
             <img src="{{user.image_url}}" alt="">
-        </div>
+        </div> 
+        <form  action="" method='POST'enctype="multipart/form-data" class="form-upload" >
+            {{form.hidden_tag()}}
+            {{form.file(class='upload-file')}}
+            {{form.submit(class='upload-submit')}}
+        </form>
+   
     </div>  
 </section>
 <section class="info" id="info">
