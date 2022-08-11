@@ -9,8 +9,8 @@ import json
 
 
 app = Flask(__name__)
-# app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'postgresql:///covid_db')
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'postgresql:///covid_db').replace("://", "ql://", 1)
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'postgresql:///covid_db')
+# app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'postgresql:///covid_db').replace("://", "ql://", 1)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['UPLOAD_FOLDER'] = 'static/files'
 app.config['DEBUG_TB_INTERCEPT_REDIRECT'] = False
@@ -135,6 +135,7 @@ def profile():
         return redirect('/login')
  
     user=User.query.get(g.user.id)
+    print(user.image_url)
     form = UploadFile()
 
     if form.validate_on_submit():
@@ -176,6 +177,8 @@ def profile():
         find(fileName, folder_path)
 
         return redirect('/profile')
+    if not user.image_url:
+        user.image_url =User.image_url.default.arg
     return render_template('profile.html', user=user, form=form)
 
 @app.route('/profile/edit', methods=['GET', 'POST'])
